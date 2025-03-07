@@ -1,7 +1,9 @@
 *, ::before, ::after {
+
     box-sizing: border-box;
     margin:0;
     padding:0;
+
 }
 
 html {
@@ -9,14 +11,17 @@ html {
 }
 
 body {
+
     font-family: 'poppins', sans-serif;
     background:#f1f1f1 ;
+
 }
 
 
 /*--------------------- Navigation -----------------------------*/
 
 .nav-gauche {
+
     width: 300px;
     height: 100vh;
     min-height:800px;
@@ -26,9 +31,12 @@ body {
     left:0;
     border-right: 1px dashed #f1f1f1;
     z-index:5;
+    transition: all 0.2s ease-in-out;
+
 }
 
 .blocs-menu {
+
     width: 100%;
     height: 10%;
     display: flex;
@@ -38,19 +46,24 @@ body {
 }
 
 .blocs-menu span {
+
    font-size: 19px;
    text-align: center;
    position:relative;
    font-weight: 700;
    cursor: pointer;
+
 }
 
 .blocs-menu span a {
+
     text-decoration: none;
     color:#f1f1f1;
+
 }
 
 .blocs-menu span::after {
+
     content:'';
     display:block;
     width:0px;
@@ -69,12 +82,15 @@ body {
 /*----------------- Portrait et logo ------------------------*/
 
 .blocs-menu:nth-child(1) {
+
     width: 100%;
     height: 25%;
     background: #333;
+
 }
 
 .cercle-portrait {
+
     margin: 20px 0;
     width:150px;
     height:150px;
@@ -82,9 +98,11 @@ body {
     position: relative;
     box-shadow: 26px 26px 53px #292929,
                 -26px -26px 53px #3d3d3d;
+
 } 
 
 .cercle-portrait img{
+
     width: 100%;
     height:100%;
     position:absolute;
@@ -97,15 +115,18 @@ body {
 }
 
 .logo-cercle {
+
     width: 100%;
     height:100%;
     border-radius: 50%;
     position : relative;
     bottom : 40px;
     cursor: pointer;
+
 }
 
 .logo-cercle img {
+
     width: 70%;
     height:70%;
     position:absolute;
@@ -113,8 +134,124 @@ body {
     left:50%;
     transform: translate(-50%,-50%);
 
+}
+
+@media screen and (max-width: 1300px) {
+
+    .nav-gauche {
+
+        left: -300px!important;  /* Le menu est caché hors de l'écran */
+
+        width:250px;
+        min-height:300px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .menu-visible {
+
+        left:0px!important; /* Le menu devient visible en déplaçant à left: 0px */
+    }
+
+    .blocs-menu:nth-child(1) {
+
+        display: none;
+    
+    }
+    
+    .blocs-menu:nth-child(7) {
+        display: none;
+    }
+    
+}
 
 
+
+.btn-rond-menu {
+
+    width:70px;
+    height:70px;
+    border: 1px solid #f1f1f1;
+    border-radius:50%;
+    background: #333;
+    position:fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+
+}
+
+.cont-ligne {
+
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.ligne-unique {
+
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.ligne-unique::before {
+
+    content:'';
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    position:absolute;
+    bottom:10px;
+
+}
+
+.ligne-unique::after {
+
+    content:'';
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    position:absolute;
+    top:10px;
+
+}
+
+.cont-ligne.active .ligne-unique::after {
+
+    top:0;
+    transform: rotate(45deg);
+    transition: top 300ms ease, transform 300ms 300ms ease;
+}
+
+.cont-ligne.active .ligne-unique {
+
+    background: transparent;
+
+}
+
+.cont-ligne.active .ligne-unique::before {
+
+    bottom:0;
+    transform: rotate(-45deg);
+    transition: bottom 300ms ease, transform 300ms 300ms ease;
 }
 
 

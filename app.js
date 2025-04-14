@@ -23,3 +23,32 @@ if (window.matchMedia('(max-width: 1300px)')) {
     } )
 
 }
+
+// Aimation écriture
+
+const txtAnim = document.querySelector('.txt-animation');
+
+let typewriter = new Typewriter(txtAnim, {
+    loop:false,
+    deleteSpeed: 20
+})
+
+typewriter
+.pauseFor(1800)
+.changeDelay(20)
+.typeString('Moi c\'est Chancelle Ravelosoa')
+.pauseFor(300)
+.typeString('<strong>, Développeur Full-Stack</strong> !')
+.pauseFor(1000)
+.deleteChars(13)
+.typeString('<span style="color: #27ae60;"> CSS</span> !')
+.pauseFor(1000)
+.deleteChars(5)
+.typeString('<span style="color:#EA39FF;"> PHP</span> !')
+.pauseFor(1000)
+.deleteChars(6)
+.typeString('<span style="color:#FF6910;"> JavaScript</span> !')
+.start()
+
+
+
